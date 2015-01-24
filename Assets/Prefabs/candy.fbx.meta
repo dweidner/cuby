@@ -1,0 +1,681 @@
+fileFormatVersion: 2
+guid: 6dbca9f4dbbc745759b1e4506c51f6f3
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: __ltank
+    100002: Boole
+    100004: Boole.1
+    100006: Boole.1.2
+    100008: Boole.1.3
+    100010: Boole.1.4
+    100012: Boole.1.5
+    100014: Boole.1.6
+    100016: Boole.1.7
+    100018: Boole.10
+    100020: Boole.11
+    100022: Boole.12
+    100024: Boole.13
+    100026: Boole.14
+    100028: Boole.15
+    100030: Boole.16
+    100032: Boole.17
+    100034: Boole.18
+    100036: Boole.19
+    100038: Boole.2
+    100040: Boole.20
+    100042: Boole.21
+    100044: Boole.22
+    100046: Boole.3
+    100048: Boole.4
+    100050: Boole.5
+    100052: Boole.6
+    100054: Boole.7
+    100056: Boole.8
+    100058: Boole.9
+    100060: //RootNode
+    100062: Caramel
+    100064: Carmel
+    100066: Carmel.1
+    100068: Cream Cone
+    100070: Cream Cone.2
+    100072: Deckfl__che 1
+    100074: Deckfl__che 1.10
+    100076: Deckfl__che 1.11
+    100078: Deckfl__che 1.12
+    100080: Deckfl__che 1.13
+    100082: Deckfl__che 1.14
+    100084: Deckfl__che 1.15
+    100086: Deckfl__che 1.16
+    100088: Deckfl__che 1.2
+    100090: Deckfl__che 1.3
+    100092: Deckfl__che 1.4
+    100094: Deckfl__che 1.5
+    100096: Deckfl__che 1.6
+    100098: Deckfl__che 1.7
+    100100: Deckfl__che 1.8
+    100102: Deckfl__che 1.9
+    100104: Deckfl__che 2
+    100106: Deckfl__che 2.10
+    100108: Deckfl__che 2.11
+    100110: Deckfl__che 2.12
+    100112: Deckfl__che 2.2
+    100114: Deckfl__che 2.3
+    100116: Deckfl__che 2.4
+    100118: Deckfl__che 2.5
+    100120: Deckfl__che 2.6
+    100122: Deckfl__che 2.7
+    100124: Deckfl__che 2.8
+    100126: Deckfl__che 2.9
+    100128: Gummib__rchen
+    100130: Gummib__rchen.2
+    100132: Helix
+    100134: Helix.2
+    100136: Helix.3
+    100138: Helix.4
+    100140: Helix.5
+    100142: Helix.6
+    100144: Helix.7
+    100146: Helix.8
+    100148: Kegel
+    100150: Kegel.2
+    100152: Kreis
+    100154: Kreis.2
+    100156: Kreis.3
+    100158: Kreis.4
+    100160: Kreis.5
+    100162: Kreis.6
+    100164: Kreis.7
+    100166: Kreis.8
+    100168: Kreis.9
+    100170: Kugel
+    100172: Kugel.2
+    100174: Lolli1
+    100176: Lolli2
+    100178: Lolli3
+    100180: Lolli4
+    100182: Lolli5
+    100184: Marschmellow 3
+    100186: Marschmellow Spirale
+    100188: Marschmellow Spirale S__ule
+    100190: Marschmellow Spirale.2
+    100192: Marshmellow 1
+    100194: Marshmellow 2
+    100196: Null-Objekt
+    100198: Null-Objekt.2
+    100200: Null-Objekt.3
+    100202: R__hre
+    100204: R__hre.1
+    100206: R__hre.1.2
+    100208: R__hre.1.3
+    100210: R__hre.1.4
+    100212: R__hre.1.5
+    100214: R__hre.1.6
+    100216: R__hre.1.7
+    100218: R__hre.1.8
+    100220: R__hre.2
+    100222: R__hre.3
+    100224: Schokotafel
+    100226: Spline-Objekt.1
+    100228: Sweep-NURBS
+    100230: Sweep-NURBS.1
+    100232: Sweep-NURBS.1.2
+    100234: Sweep-NURBS.1.3
+    100236: Sweep-NURBS.1.4
+    100238: Sweep-NURBS.1.5
+    100240: Sweep-NURBS.1.6
+    100242: Sweep-NURBS.1.7
+    100244: Sweep-NURBS.10
+    100246: Sweep-NURBS.11
+    100248: Sweep-NURBS.12
+    100250: Sweep-NURBS.13
+    100252: Sweep-NURBS.2
+    100254: Sweep-NURBS.2.2
+    100256: Sweep-NURBS.2.3
+    100258: Sweep-NURBS.2.4
+    100260: Sweep-NURBS.2.5
+    100262: Sweep-NURBS.2.6
+    100264: Sweep-NURBS.2.7
+    100266: Sweep-NURBS.2.8
+    100268: Sweep-NURBS.3
+    100270: Sweep-NURBS.4
+    100272: Sweep-NURBS.5
+    100274: Sweep-NURBS.6
+    100276: Sweep-NURBS.7
+    100278: Sweep-NURBS.8
+    100280: Sweep-NURBS.9
+    100282: W__rfel
+    100284: W__rfel.1
+    100286: W__rfel.1.2
+    100288: W__rfel.10
+    100290: W__rfel.11
+    100292: W__rfel.12
+    100294: W__rfel.13
+    100296: W__rfel.14
+    100298: W__rfel.15
+    100300: W__rfel.16
+    100302: W__rfel.17
+    100304: W__rfel.18
+    100306: W__rfel.19
+    100308: W__rfel.2
+    100310: W__rfel.2.2
+    100312: W__rfel.20
+    100314: W__rfel.21
+    100316: W__rfel.22
+    100318: W__rfel.23
+    100320: W__rfel.24
+    100322: W__rfel.25
+    100324: W__rfel.26
+    100326: W__rfel.27
+    100328: W__rfel.28
+    100330: W__rfel.29
+    100332: W__rfel.3
+    100334: W__rfel.30
+    100336: W__rfel.31
+    100338: W__rfel.32
+    100340: W__rfel.33
+    100342: W__rfel.34
+    100344: W__rfel.35
+    100346: W__rfel.36
+    100348: W__rfel.37
+    100350: W__rfel.38
+    100352: W__rfel.39
+    100354: W__rfel.4
+    100356: W__rfel.40
+    100358: W__rfel.41
+    100360: W__rfel.42
+    100362: W__rfel.5
+    100364: W__rfel.6
+    100366: W__rfel.7
+    100368: W__rfel.8
+    100370: W__rfel.9
+    100372: Zuckerstange
+    100374: Zuckerstange.2
+    100376: Zylinder
+    100378: Zylinder.2
+    100380: Zylinder.3
+    100382: Zylinder.4
+    100384: Zylinder.5
+    400000: __ltank
+    400002: Boole
+    400004: Boole.1
+    400006: Boole.1.2
+    400008: Boole.1.3
+    400010: Boole.1.4
+    400012: Boole.1.5
+    400014: Boole.1.6
+    400016: Boole.1.7
+    400018: Boole.10
+    400020: Boole.11
+    400022: Boole.12
+    400024: Boole.13
+    400026: Boole.14
+    400028: Boole.15
+    400030: Boole.16
+    400032: Boole.17
+    400034: Boole.18
+    400036: Boole.19
+    400038: Boole.2
+    400040: Boole.20
+    400042: Boole.21
+    400044: Boole.22
+    400046: Boole.3
+    400048: Boole.4
+    400050: Boole.5
+    400052: Boole.6
+    400054: Boole.7
+    400056: Boole.8
+    400058: Boole.9
+    400060: //RootNode
+    400062: Caramel
+    400064: Carmel
+    400066: Carmel.1
+    400068: Cream Cone
+    400070: Cream Cone.2
+    400072: Deckfl__che 1
+    400074: Deckfl__che 1.10
+    400076: Deckfl__che 1.11
+    400078: Deckfl__che 1.12
+    400080: Deckfl__che 1.13
+    400082: Deckfl__che 1.14
+    400084: Deckfl__che 1.15
+    400086: Deckfl__che 1.16
+    400088: Deckfl__che 1.2
+    400090: Deckfl__che 1.3
+    400092: Deckfl__che 1.4
+    400094: Deckfl__che 1.5
+    400096: Deckfl__che 1.6
+    400098: Deckfl__che 1.7
+    400100: Deckfl__che 1.8
+    400102: Deckfl__che 1.9
+    400104: Deckfl__che 2
+    400106: Deckfl__che 2.10
+    400108: Deckfl__che 2.11
+    400110: Deckfl__che 2.12
+    400112: Deckfl__che 2.2
+    400114: Deckfl__che 2.3
+    400116: Deckfl__che 2.4
+    400118: Deckfl__che 2.5
+    400120: Deckfl__che 2.6
+    400122: Deckfl__che 2.7
+    400124: Deckfl__che 2.8
+    400126: Deckfl__che 2.9
+    400128: Gummib__rchen
+    400130: Gummib__rchen.2
+    400132: Helix
+    400134: Helix.2
+    400136: Helix.3
+    400138: Helix.4
+    400140: Helix.5
+    400142: Helix.6
+    400144: Helix.7
+    400146: Helix.8
+    400148: Kegel
+    400150: Kegel.2
+    400152: Kreis
+    400154: Kreis.2
+    400156: Kreis.3
+    400158: Kreis.4
+    400160: Kreis.5
+    400162: Kreis.6
+    400164: Kreis.7
+    400166: Kreis.8
+    400168: Kreis.9
+    400170: Kugel
+    400172: Kugel.2
+    400174: Lolli1
+    400176: Lolli2
+    400178: Lolli3
+    400180: Lolli4
+    400182: Lolli5
+    400184: Marschmellow 3
+    400186: Marschmellow Spirale
+    400188: Marschmellow Spirale S__ule
+    400190: Marschmellow Spirale.2
+    400192: Marshmellow 1
+    400194: Marshmellow 2
+    400196: Null-Objekt
+    400198: Null-Objekt.2
+    400200: Null-Objekt.3
+    400202: R__hre
+    400204: R__hre.1
+    400206: R__hre.1.2
+    400208: R__hre.1.3
+    400210: R__hre.1.4
+    400212: R__hre.1.5
+    400214: R__hre.1.6
+    400216: R__hre.1.7
+    400218: R__hre.1.8
+    400220: R__hre.2
+    400222: R__hre.3
+    400224: Schokotafel
+    400226: Spline-Objekt.1
+    400228: Sweep-NURBS
+    400230: Sweep-NURBS.1
+    400232: Sweep-NURBS.1.2
+    400234: Sweep-NURBS.1.3
+    400236: Sweep-NURBS.1.4
+    400238: Sweep-NURBS.1.5
+    400240: Sweep-NURBS.1.6
+    400242: Sweep-NURBS.1.7
+    400244: Sweep-NURBS.10
+    400246: Sweep-NURBS.11
+    400248: Sweep-NURBS.12
+    400250: Sweep-NURBS.13
+    400252: Sweep-NURBS.2
+    400254: Sweep-NURBS.2.2
+    400256: Sweep-NURBS.2.3
+    400258: Sweep-NURBS.2.4
+    400260: Sweep-NURBS.2.5
+    400262: Sweep-NURBS.2.6
+    400264: Sweep-NURBS.2.7
+    400266: Sweep-NURBS.2.8
+    400268: Sweep-NURBS.3
+    400270: Sweep-NURBS.4
+    400272: Sweep-NURBS.5
+    400274: Sweep-NURBS.6
+    400276: Sweep-NURBS.7
+    400278: Sweep-NURBS.8
+    400280: Sweep-NURBS.9
+    400282: W__rfel
+    400284: W__rfel.1
+    400286: W__rfel.1.2
+    400288: W__rfel.10
+    400290: W__rfel.11
+    400292: W__rfel.12
+    400294: W__rfel.13
+    400296: W__rfel.14
+    400298: W__rfel.15
+    400300: W__rfel.16
+    400302: W__rfel.17
+    400304: W__rfel.18
+    400306: W__rfel.19
+    400308: W__rfel.2
+    400310: W__rfel.2.2
+    400312: W__rfel.20
+    400314: W__rfel.21
+    400316: W__rfel.22
+    400318: W__rfel.23
+    400320: W__rfel.24
+    400322: W__rfel.25
+    400324: W__rfel.26
+    400326: W__rfel.27
+    400328: W__rfel.28
+    400330: W__rfel.29
+    400332: W__rfel.3
+    400334: W__rfel.30
+    400336: W__rfel.31
+    400338: W__rfel.32
+    400340: W__rfel.33
+    400342: W__rfel.34
+    400344: W__rfel.35
+    400346: W__rfel.36
+    400348: W__rfel.37
+    400350: W__rfel.38
+    400352: W__rfel.39
+    400354: W__rfel.4
+    400356: W__rfel.40
+    400358: W__rfel.41
+    400360: W__rfel.42
+    400362: W__rfel.5
+    400364: W__rfel.6
+    400366: W__rfel.7
+    400368: W__rfel.8
+    400370: W__rfel.9
+    400372: Zuckerstange
+    400374: Zuckerstange.2
+    400376: Zylinder
+    400378: Zylinder.2
+    400380: Zylinder.3
+    400382: Zylinder.4
+    400384: Zylinder.5
+    2300000: __ltank
+    2300002: Deckfl__che 1
+    2300004: Deckfl__che 1.11
+    2300006: Deckfl__che 1.14
+    2300008: Deckfl__che 1.15
+    2300010: Deckfl__che 1.16
+    2300012: Deckfl__che 1.2
+    2300014: Deckfl__che 1.4
+    2300016: Deckfl__che 1.5
+    2300018: Deckfl__che 1.6
+    2300020: Deckfl__che 1.8
+    2300022: Deckfl__che 1.9
+    2300024: Deckfl__che 2.10
+    2300026: Deckfl__che 2.11
+    2300028: Deckfl__che 2.12
+    2300030: Deckfl__che 2.3
+    2300032: Deckfl__che 2.4
+    2300034: Deckfl__che 2.7
+    2300036: Gummib__rchen.2
+    2300038: Kegel
+    2300040: Kegel.2
+    2300042: Kugel
+    2300044: Kugel.2
+    2300046: R__hre
+    2300048: R__hre.1
+    2300050: R__hre.1.4
+    2300052: R__hre.1.5
+    2300054: R__hre.1.6
+    2300056: R__hre.1.7
+    2300058: R__hre.1.8
+    2300060: R__hre.2
+    2300062: R__hre.3
+    2300064: Schokotafel
+    2300066: Sweep-NURBS
+    2300068: Sweep-NURBS.1
+    2300070: Sweep-NURBS.1.4
+    2300072: Sweep-NURBS.1.5
+    2300074: Sweep-NURBS.11
+    2300076: Sweep-NURBS.12
+    2300078: Sweep-NURBS.13
+    2300080: Sweep-NURBS.2
+    2300082: Sweep-NURBS.2.5
+    2300084: Sweep-NURBS.2.6
+    2300086: Sweep-NURBS.4
+    2300088: Sweep-NURBS.5
+    2300090: Sweep-NURBS.8
+    2300092: W__rfel
+    2300094: W__rfel.1
+    2300096: W__rfel.1.2
+    2300098: W__rfel.10
+    2300100: W__rfel.14
+    2300102: W__rfel.15
+    2300104: W__rfel.19
+    2300106: W__rfel.2
+    2300108: W__rfel.2.2
+    2300110: W__rfel.20
+    2300112: W__rfel.21
+    2300114: W__rfel.22
+    2300116: W__rfel.23
+    2300118: W__rfel.24
+    2300120: W__rfel.25
+    2300122: W__rfel.26
+    2300124: W__rfel.3
+    2300126: W__rfel.30
+    2300128: W__rfel.31
+    2300130: W__rfel.35
+    2300132: W__rfel.36
+    2300134: W__rfel.4
+    2300136: W__rfel.40
+    2300138: W__rfel.41
+    2300140: W__rfel.42
+    2300142: W__rfel.5
+    2300144: W__rfel.9
+    2300146: Zuckerstange.2
+    2300148: Zylinder
+    2300150: Zylinder.3
+    2300152: Zylinder.4
+    2300154: Zylinder.5
+    3300000: __ltank
+    3300002: Deckfl__che 1
+    3300004: Deckfl__che 1.11
+    3300006: Deckfl__che 1.14
+    3300008: Deckfl__che 1.15
+    3300010: Deckfl__che 1.16
+    3300012: Deckfl__che 1.2
+    3300014: Deckfl__che 1.4
+    3300016: Deckfl__che 1.5
+    3300018: Deckfl__che 1.6
+    3300020: Deckfl__che 1.8
+    3300022: Deckfl__che 1.9
+    3300024: Deckfl__che 2.10
+    3300026: Deckfl__che 2.11
+    3300028: Deckfl__che 2.12
+    3300030: Deckfl__che 2.3
+    3300032: Deckfl__che 2.4
+    3300034: Deckfl__che 2.7
+    3300036: Gummib__rchen.2
+    3300038: Kegel
+    3300040: Kegel.2
+    3300042: Kugel
+    3300044: Kugel.2
+    3300046: R__hre
+    3300048: R__hre.1
+    3300050: R__hre.1.4
+    3300052: R__hre.1.5
+    3300054: R__hre.1.6
+    3300056: R__hre.1.7
+    3300058: R__hre.1.8
+    3300060: R__hre.2
+    3300062: R__hre.3
+    3300064: Schokotafel
+    3300066: Sweep-NURBS
+    3300068: Sweep-NURBS.1
+    3300070: Sweep-NURBS.1.4
+    3300072: Sweep-NURBS.1.5
+    3300074: Sweep-NURBS.11
+    3300076: Sweep-NURBS.12
+    3300078: Sweep-NURBS.13
+    3300080: Sweep-NURBS.2
+    3300082: Sweep-NURBS.2.5
+    3300084: Sweep-NURBS.2.6
+    3300086: Sweep-NURBS.4
+    3300088: Sweep-NURBS.5
+    3300090: Sweep-NURBS.8
+    3300092: W__rfel
+    3300094: W__rfel.1
+    3300096: W__rfel.1.2
+    3300098: W__rfel.10
+    3300100: W__rfel.14
+    3300102: W__rfel.15
+    3300104: W__rfel.19
+    3300106: W__rfel.2
+    3300108: W__rfel.2.2
+    3300110: W__rfel.20
+    3300112: W__rfel.21
+    3300114: W__rfel.22
+    3300116: W__rfel.23
+    3300118: W__rfel.24
+    3300120: W__rfel.25
+    3300122: W__rfel.26
+    3300124: W__rfel.3
+    3300126: W__rfel.30
+    3300128: W__rfel.31
+    3300130: W__rfel.35
+    3300132: W__rfel.36
+    3300134: W__rfel.4
+    3300136: W__rfel.40
+    3300138: W__rfel.41
+    3300140: W__rfel.42
+    3300142: W__rfel.5
+    3300144: W__rfel.9
+    3300146: Zuckerstange.2
+    3300148: Zylinder
+    3300150: Zylinder.3
+    3300152: Zylinder.4
+    3300154: Zylinder.5
+    4300000: W__rfel.1
+    4300002: W__rfel
+    4300004: Gummib__rchen.2
+    4300006: W__rfel.2
+    4300008: W__rfel.3
+    4300010: Sweep-NURBS.2
+    4300012: Deckfl__che 1
+    4300014: W__rfel.4
+    4300016: W__rfel.5
+    4300018: Sweep-NURBS.1
+    4300020: Deckfl__che 1.2
+    4300022: W__rfel.9
+    4300024: W__rfel.10
+    4300026: Sweep-NURBS
+    4300028: Deckfl__che 2.3
+    4300030: W__rfel.14
+    4300032: W__rfel.15
+    4300034: Zuckerstange.2
+    4300036: Deckfl__che 1.4
+    4300038: Deckfl__che 2.4
+    4300040: Schokotafel
+    4300042: Sweep-NURBS.2.5
+    4300044: Deckfl__che 1.5
+    4300046: W__rfel.19
+    4300048: W__rfel.20
+    4300050: Sweep-NURBS.1.4
+    4300052: Deckfl__che 1.6
+    4300054: W__rfel.21
+    4300056: W__rfel.22
+    4300058: Sweep-NURBS.4
+    4300060: Deckfl__che 2.7
+    4300062: W__rfel.23
+    4300064: W__rfel.24
+    4300066: Sweep-NURBS.2.6
+    4300068: Deckfl__che 1.8
+    4300070: W__rfel.25
+    4300072: W__rfel.26
+    4300074: Sweep-NURBS.1.5
+    4300076: Deckfl__che 1.9
+    4300078: W__rfel.30
+    4300080: W__rfel.31
+    4300082: Sweep-NURBS.5
+    4300084: Deckfl__che 2.10
+    4300086: W__rfel.35
+    4300088: W__rfel.36
+    4300090: W__rfel.2.2
+    4300092: W__rfel.1.2
+    4300094: W__rfel.40
+    4300096: W__rfel.41
+    4300098: W__rfel.42
+    4300100: Kegel
+    4300102: Sweep-NURBS.8
+    4300104: Deckfl__che 1.11
+    4300106: R__hre.1
+    4300108: Zylinder
+    4300110: R__hre
+    4300112: Zylinder.3
+    4300114: Kegel.2
+    4300116: Sweep-NURBS.11
+    4300118: Deckfl__che 1.14
+    4300120: R__hre.1.4
+    4300122: Zylinder.4
+    4300124: R__hre.2
+    4300126: Zylinder.5
+    4300128: Kugel
+    4300130: R__hre.1.5
+    4300132: Sweep-NURBS.12
+    4300134: Deckfl__che 1.15
+    4300136: Deckfl__che 2.11
+    4300138: R__hre.1.6
+    4300140: Sweep-NURBS.13
+    4300142: Deckfl__che 1.16
+    4300144: Deckfl__che 2.12
+    4300146: R__hre.1.7
+    4300148: __ltank
+    4300150: R__hre.1.8
+    4300152: Kugel.2
+    4300154: R__hre.3
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
