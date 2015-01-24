@@ -1,151 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimationController : MonoBehaviour
-{
-	public enum Edge {
-		None = 0,
-		Front = 1,
-		Back = 2,
-		Left = 3,
-		Right = 4,
-	}
+public class AnimationController : MonoBehaviour {
 
-	public delegate void AnimationAction();
-
-	public static event AnimationAction OnStart;
-	public static event AnimationAction OnDone;
-
-	public Edge edge = Edge.None;
 	public float size = 1f;
-	public float speed = 3f;
-	public float start = 0f;
-	public float end = 90f;
 
-	protected bool isAnimating = false;
-	protected float angle = 0f;
+	protected Transform target;
+	protected bool isAnimating;
 
-	public void OnEnable() {
-		InputController.OnMove += HandleOnMove;
-	}
-
-	public void OnDisable() {
-		InputController.OnMove -= HandleOnMove;
-	}
-	
-	public void Update() {
+	public void Start() {
 		
-		if (isAnimating)
-			UpdateAnimation (edge, start, end);
+		target = transform.FindChild ("Target");
+		
+		if (!target)
+			Debug.LogError("Could not find target element");
 		
 	}
 
-	public void StartAnimation(Edge e, float from = 0f, float to = 90f) {
+	public void Update () {
 
-		if (e != Edge.None && !isAnimating) {
-
-			edge = e;
-			start = from;
-			end = to;
+		if (!isAnimating && Input.GetKeyDown("up")) {
 			isAnimating = true;
-
-			Debug.Log ("Start");
-
-			if (OnStart != null)
-				OnStart();
+			target.Translate (0, -.5f * size, .5f * size);
+			StartCoroutine(RotateAroundEdge(target.position, Vector3.right));
+		}
+		if (!isAnimating && Input.GetKeyDown("down")) {
+			isAnimating = true;
+			target.Translate(0, -.5f * size, -.5f * size);  
+			StartCoroutine(RotateAroundEdge(target.position, Vector3.left));  
+		}
+		if (!isAnimating && Input.GetKeyDown("left")) {
+			isAnimating = true;
+			target.Translate(-.5f * size, -.5f * size, 0);  
+			StartCoroutine(RotateAroundEdge(target.position, Vector3.forward)); 
+		}
+		if (!isAnimating && Input.GetKeyDown("right")) {
+			isAnimating = true;
+			target.Translate(.5f * size, -.5f * size, 0);
+			StartCoroutine(RotateAroundEdge(target.position, Vector3.back));
 		}
 
 	}
 
-	public void UpdateAnimation(Edge e, float from = 0f, float to = 90f) {
-		
-		// Run animation. Trigger event once done.
-		if (isAnimating && RotateAroundEdge (e, start, end) >= 1f) {
-			StopAnimation();
-		}
-		
-	}
+	public IEnumerator RotateAroundEdge(Vector3 point, Vector3 axis, float end = 90f) {
 
-	public void StopAnimation() {
+		int iterations = 30;
+		float angle = end / iterations;
 
-		if (isAnimating) {
-
-			isAnimating = false;
-
-			angle = 0f;
-			edge = Edge.None;
-
-			// Fix vertical position
-			transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
-
-			// Clamp angles
-			var euler = transform.eulerAngles;
-			euler.x = Mathf.Round(euler.x / end) * end;
-			euler.y = Mathf.Round(euler.y / end) * end;
-			euler.z = Mathf.Round(euler.z / end) * end;
-			transform.eulerAngles = euler;
-			
-			if (OnDone != null)
-				OnDone();
-
+		for (int i = 1; i <= iterations; i++) {
+			transform.RotateAround(point, axis, angle);
+			yield return new WaitForSeconds(0.0033333f);
 		}
 
-	}
+		target.position = transform.position;
 
-	protected void HandleOnMove (InputController.Movement dir) {
+		// Restrict movement to xz layer
+		Vector3 position = transform.position;
+		position.y = 0;
+		transform.position = position;
 
-		if (!isAnimating) {
+		// Clamp angles
+		Vector3 euler = transform.eulerAngles;
+		euler.x = Mathf.Round (euler.x / 90f) * 90f;
+		euler.y = Mathf.Round (euler.x / 90f) * 90f;
+		euler.z = Mathf.Round (euler.x / 90f) * 90f;
+		transform.eulerAngles = euler;
 
-			switch (dir) {
-				case InputController.Movement.Forward:
-					StartAnimation(Edge.Front);
-					break;
-				case InputController.Movement.Back:
-					StartAnimation(Edge.Back);
-					break;
-				case InputController.Movement.Left:
-					StartAnimation(Edge.Left);
-					break;
-				case InputController.Movement.Right:
-					StartAnimation(Edge.Right);
-					break;
-			}
+		// Stop animation
+		isAnimating = false;
 
-		}
-
-	}
-
-	protected Vector3 EdgeToDirection(Edge edge) {
-
-		switch (edge) {
-			case Edge.Front:
-				return Vector3.back;
-			case Edge.Back:
-				return Vector3.forward;
-			case Edge.Left:
-				return Vector3.right;
-			case Edge.Right:
-				return Vector3.left;
-			default:
-				return Vector3.zero;
-		}
-
-	}
-	
-	protected float RotateAroundEdge(Edge e, float from = 0f, float to = 90f) {
-		
-		// Move pivot point to the edge of the cube
-		Vector3 xz = EdgeToDirection (e);
-		Vector3 pivot = transform.position + .5f * size * xz + .5f * size * Vector3.down;
-
-		// Rotate entity and calculate current angle
-		float a = Mathf.Ceil (Mathf.LerpAngle (from, to, speed * Time.deltaTime));
-		transform.RotateAround (pivot, xz, a);
-		angle += a;
-
-		// Return the progress of the animation
-		return Mathf.Min (angle / to, 1f);
-		
 	}
 
 }
