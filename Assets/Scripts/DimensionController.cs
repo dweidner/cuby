@@ -2,49 +2,69 @@
 using System.Collections;
 
 public class DimensionController : MonoBehaviour {
-	public GameObject cube;
+	
+	public void OnEnable() {
 
-	// Use this for initialization
-	void Start () {
+		PlayerController.OnMove += HandleOnMove;
+		PlayerController.OnAnimationDone += HandleOnAnimationDone;
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void OnDisable() {
+
+		PlayerController.OnAnimationDone -= HandleOnAnimationDone;
+
 	}
 
-	public void UpdateDimension(){
-		GameObject metaTile = getTileByPosition(cube.transform.position, "MetaTile");
-		Debug.Log (metaTile);
-		if(metaTile != null && metaTile.tag == "MetaTile"){
-			toggleDimension(metaTile.GetComponent<MetaTile>().dimension.ToString());
+	public void Update() {
+
+	}
+
+	protected void HandleOnMove (PlayerEventArgs e) {
+
+	}
+	
+	protected void HandleOnAnimationDone (PlayerEventArgs e) {
+
+		GameObject hero = e.GameObject;
+		Vector3 position = e.Position;
+		GameObject tile = GetTileByPosition(e.Position, "MetaTile");
+
+		if(tile != null){
+			ToggleDimension(tile);
 		}
+
 	}
 
-	private GameObject getTileByPosition(Vector3 position, string tag){
+	protected GameObject GetTileByPosition(Vector3 position, string tag) {
+
 		GameObject[] tiles = GameObject.FindGameObjectsWithTag(tag);
-		Debug.Log (tiles.Length);
+
 		foreach (var tile in tiles) {
 			Vector3 tilePos = tile.transform.position;
 			if(Mathf.Approximately(position.x, tilePos.x) && Mathf.Approximately(position.z, tilePos.z)){
 				return tile;
 			}
 		}
+
 		return null;
+
 	}
 
-	public void toggleDimension(string dimensionTitle){
+	protected void ToggleDimension(GameObject tile) {
+
+		string dimension = tile.GetComponent<MetaTile> ().dimension.ToString ();
+
 		Camera.main.cullingMask = 0;
-		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer(dimensionTitle + " visual"));
+		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer(dimension + " visual"));
 
 		Light[] lights = FindObjectsOfType(typeof(Light)) as Light[];
-		foreach(Light light in lights)
-		{
+		foreach(Light light in lights) {
 			light.intensity = 0;
-			if(light.tag == dimensionTitle + "Light"){
+			if(light.tag == dimension + "Light") {
 				light.intensity = 1;
 			}
 		}
+
 	}
 }
