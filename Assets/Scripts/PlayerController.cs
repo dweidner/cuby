@@ -206,6 +206,8 @@ public class PlayerController : MonoBehaviour {
 		// Notify game components
 		if (OnAnimationDone != null)
 			OnAnimationDone (new PlayerEventArgs(gameObject));
+
+		audio.Play();
 		
 		
 	}
