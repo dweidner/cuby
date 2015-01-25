@@ -56,7 +56,7 @@ public class AnimationController : MonoBehaviour {
 
 		// Restrict movement to xz layer
 		Vector3 position = transform.position;
-		position.y = 0;
+		position.y = .5f * size;
 		transform.position = position;
 
 		// Clamp angles
@@ -68,6 +68,9 @@ public class AnimationController : MonoBehaviour {
 
 		// Stop animation
 		isAnimating = false;
+
+//		GameObject dimensionController = GameObject.Find ("DimensionController");
+//		dimensionController.GetComponent<DimensionController> ().UpdateDimension ();
 
 	}
 

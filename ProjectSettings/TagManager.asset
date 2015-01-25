@@ -3,6 +3,10 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Dimension1Light
+  - Dimension2Light
+  - Dimension3Light
+  - MetaTile
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -12,13 +16,13 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: 
-  User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
-  User Layer 14: 
+  User Layer 8: Dimension1
+  User Layer 9: Dimension2
+  User Layer 10: Dimension3
+  User Layer 11: Meta Dimension
+  User Layer 12: Dimension1 visual
+  User Layer 13: Dimension2 visual
+  User Layer 14: Dimension3 visual
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 
