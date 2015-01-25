@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 public class DimensionController : MonoBehaviour {
 
-	public string tileTag = "MetaTile";
+	public string dimensionTag = "Dimension";
+	public string metaTileTag = "MetaTile";
 	public float tileSize = 1f;
 
-	protected GameObject[] tiles;
-	protected GameObject activeTile;
+	protected Dictionary<string, Transform[]> tiles;
+	protected GameObject[] metaTiles;
+	protected GameObject currentMetaTile;
 
 	public void OnEnable() {
 
@@ -26,10 +28,32 @@ public class DimensionController : MonoBehaviour {
 
 	public void Start() {
 
-		tiles = GameObject.FindGameObjectsWithTag (tileTag);
+		tiles = new Dictionary<string, Transform[]> ();
 
-		if (tiles != null || tiles.Length == 0) {
-			Debug.LogError( "No tiles found" );
+		GameObject[] dimensions = GameObject.FindGameObjectsWithTag (dimensionTag);
+		foreach (GameObject dimension in dimensions) {
+
+			Transform[] children = dimension.GetComponentsInChildren<Transform>();
+			tiles.Add(dimension.name, children);
+
+			if (children.Length == 0) {
+				Debug.LogError( "Dimension " + name + " is empty" );
+			}
+
+		}
+
+		metaTiles = GameObject.FindGameObjectsWithTag (metaTileTag);
+
+		if (metaTiles == null || metaTiles.Length == 0) {
+			Debug.LogError( "No meta tiles found" );
+		}
+
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		GameObject tile = GetMetaTileByPosition (player.transform.position);
+		SetActiveTile (tile);
+
+		if (tile == null) {
+			Debug.LogError( "Starting tile not found");
 		}
 
 	}
@@ -49,39 +73,79 @@ public class DimensionController : MonoBehaviour {
 	
 	protected void HandleOnAnimationDone (PlayerEventArgs e) {
 
-		GameObject tile = GetTileByPosition(e.NormalizedPosition);
-
-		if(tile != null){
-			SetActiveTile(tile);
-		} else {
-			activeTile = null;
-		}
+		GameObject tile = GetMetaTileByPosition(e.NormalizedPosition);
+		SetActiveTile(tile);
 
 	}
 
 	protected bool HeroCanMove(Vector3 position, string direction) {
 
-		GameObject[] neighbours = GetNeighbourTiles (position);
+		GameObject[] neighbours = GetNeighbourMetaTiles (position);
+		GameObject targetMetaTile = null;
 
 		if (direction == "up" && neighbours [0] != null) {
-			return neighbours[0].GetComponent<Tile>().isPassable;
+			targetMetaTile = neighbours[0];
 		} else if (direction == "right" && neighbours [1] != null) {
-			return neighbours[1].GetComponent<Tile>().isPassable;
+			targetMetaTile = neighbours[1];
 		} else if (direction == "down" && neighbours [2] != null) {
-			return neighbours[2].GetComponent<Tile>().isPassable;
+			targetMetaTile = neighbours[2];
 		} else if (direction == "left" && neighbours[3] != null) {
-			return neighbours[3].GetComponent<Tile>().isPassable;
+			targetMetaTile = neighbours[3];
+		}
+
+
+		if (currentMetaTile != null && targetMetaTile != null) {
+
+			string currentDimension = GetDimension(currentMetaTile);
+			string targetDimension = GetDimension(targetMetaTile);
+
+			GameObject targetTileCurrentDimension = GetTileInDimension(currentDimension, targetMetaTile.transform.position);
+			GameObject targetTileNextDimension = GetTileInDimension(targetDimension, targetMetaTile.transform.position);
+
+			bool isPassable = false;
+
+			if (!isPassable && targetTileCurrentDimension != null) {
+				isPassable = targetTileCurrentDimension.GetComponent<Tile>().isPassable;
+			}
+
+			if (!isPassable && targetTileNextDimension != null) {
+				isPassable = targetTileNextDimension.GetComponent<Tile>().isPassable;
+			}
+
+			return isPassable;
+
 		}
 
 		return false;
 
 	}
 
-	protected GameObject GetTileByPosition(Vector3 position) {
+	protected GameObject GetTileInDimension(string dimension, Vector3 position) {
 
-		foreach (var tile in tiles) {
+		if (tiles.ContainsKey(dimension)) {
+
+			Transform[] children = tiles[dimension];
+
+			foreach (var transform in children) {
+
+				Vector3 tilePos = transform.position;
+				if(Mathf.Approximately(position.x, tilePos.x) && Mathf.Approximately(position.z, tilePos.z)) {
+					return transform.gameObject;
+				}
+
+			}
+
+		}
+
+		return null;
+
+	}
+
+	protected GameObject GetMetaTileByPosition(Vector3 position) {
+
+		foreach (var tile in metaTiles) {
 			Vector3 tilePos = tile.transform.position;
-			if(Mathf.Approximately(position.x, tilePos.x) && Mathf.Approximately(position.z, tilePos.z)){
+			if(Mathf.Approximately(position.x, tilePos.x) && Mathf.Approximately(position.z, tilePos.z)) {
 				return tile;
 			}
 		}
@@ -90,24 +154,24 @@ public class DimensionController : MonoBehaviour {
 
 	}
 
-	protected GameObject[] GetNeighbourTiles(Vector3 position) {
+	protected GameObject[] GetNeighbourMetaTiles(Vector3 position) {
 
 		GameObject[] neighbours = new GameObject [4];
-		GameObject current = GetTileByPosition (position);
+		GameObject current = GetMetaTileByPosition (position);
 
 		if (current != null) {
 	
 			// Above
-			neighbours[0] = GetTileByPosition(position + tileSize * Vector3.forward);
+			neighbours[0] = GetMetaTileByPosition(position + tileSize * Vector3.forward);
 
 			// Right
-			neighbours[1] = GetTileByPosition(position + tileSize * Vector3.right);
+			neighbours[1] = GetMetaTileByPosition(position + tileSize * Vector3.right);
 
 			// Below
-			neighbours[2] = GetTileByPosition(position + tileSize * Vector3.back);
+			neighbours[2] = GetMetaTileByPosition(position + tileSize * Vector3.back);
 
 			// Left
-			neighbours[3] = GetTileByPosition(position + tileSize * Vector3.left);
+			neighbours[3] = GetMetaTileByPosition(position + tileSize * Vector3.left);
 
 		}
 
@@ -116,13 +180,18 @@ public class DimensionController : MonoBehaviour {
 
 	}
 
-	protected void SetActiveTile(GameObject t) {
+	protected void SetActiveTile(GameObject tile) {
 
-		activeTile = t;
+		currentMetaTile = tile;
 
-		string dimension = t.GetComponent<MetaTile> ().dimension.ToString ();
-		ShowDimension (dimension);
+		if (tile != null) {
+			ShowDimension (GetDimension (tile));
+		}
 
+	}
+
+	protected string GetDimension(GameObject tile) {
+		return tile.GetComponent<MetaTile> ().dimension.ToString ();
 	}
 
 	protected void ShowDimension(string name) {
@@ -140,4 +209,5 @@ public class DimensionController : MonoBehaviour {
 		}
 
 	}
+
 }
