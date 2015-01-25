@@ -6,6 +6,8 @@ public delegate void PlayerEventHandler(PlayerEventArgs e);
 public class PlayerEventArgs : System.EventArgs {
 
 	private GameObject entity;
+
+	private string movement;
 	private bool canceled;
 
 	public GameObject GameObject
@@ -15,9 +17,20 @@ public class PlayerEventArgs : System.EventArgs {
 
 	public Vector3 Position
 	{
-		get { return NormalizePosition(entity.transform.position); }
+		get { return entity.transform.position; }
 	}
-	
+
+	public Vector3 NormalizedPosition
+	{
+		get { return NormalizePosition(this.Position); }
+	}
+
+	public string Movement
+	{
+		get { return movement; }
+		set { movement = value; }
+	}
+
 	public bool IsCanceled 
 	{
 		get { return canceled; }
@@ -97,6 +110,8 @@ public class PlayerController : MonoBehaviour {
 		if (OnMove != null) {
 			
 			PlayerEventArgs e = new PlayerEventArgs(gameObject);
+			e.Movement = direction;
+
 			OnMove(e);
 
 			// Return early
