@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class DimensionController : MonoBehaviour {
-	
+
+	public GameObject tile;
+
 	public void OnEnable() {
 
 		PlayerController.OnMove += HandleOnMove;
@@ -27,11 +29,10 @@ public class DimensionController : MonoBehaviour {
 	protected void HandleOnAnimationDone (PlayerEventArgs e) {
 
 		GameObject hero = e.GameObject;
-		Vector3 position = e.Position;
 		GameObject tile = GetTileByPosition(e.Position, "MetaTile");
 
 		if(tile != null){
-			ToggleDimension(tile);
+			SetActiveTile(tile);
 		}
 
 	}
@@ -51,17 +52,25 @@ public class DimensionController : MonoBehaviour {
 
 	}
 
-	protected void ToggleDimension(GameObject tile) {
+	protected void SetActiveTile(GameObject t) {
+
+		tile = t;
 
 		string dimension = tile.GetComponent<MetaTile> ().dimension.ToString ();
+		ShowDimension (dimension);
+
+	}
+
+	protected void ShowDimension(string name) {
 
 		Camera.main.cullingMask = 0;
-		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer(dimension + " visual"));
+		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer("Default"));
+		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer(name + " visual"));
 
 		Light[] lights = FindObjectsOfType(typeof(Light)) as Light[];
 		foreach(Light light in lights) {
 			light.intensity = 0;
-			if(light.tag == dimension + "Light") {
+			if(light.tag == name + "Light") {
 				light.intensity = 1;
 			}
 		}

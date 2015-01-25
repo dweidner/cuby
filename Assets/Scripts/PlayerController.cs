@@ -131,68 +131,36 @@ public class PlayerController : MonoBehaviour {
 
 	protected void AnimateMoveLeft() {
 		
-		StartAnimation ();
-		
 		target.Translate(-.5f * size, -.5f * size, 0);  
 		StartCoroutine(RotateAroundEdge(target.position, Vector3.forward)); 
-		
-		FinishAnimation ();
-		
+				
 	}
 	
 	protected void AnimateMoveRight() {
-		
-		StartAnimation ();
-		
+				
 		target.Translate(.5f * size, -.5f * size, 0);
 		StartCoroutine(RotateAroundEdge(target.position, Vector3.back));
-		
-		FinishAnimation ();
-		
+				
 	}
 	
 	protected void AnimateMoveUp() {
-		
-		StartAnimation ();
-		
+				
 		target.Translate (0, -.5f * size, .5f * size);
 		StartCoroutine(RotateAroundEdge(target.position, Vector3.right));
-		
-		FinishAnimation ();
-		
+				
 	}
 	
 	protected void AnimateMoveDown() {
-		
-		StartAnimation ();
-		
+				
 		target.Translate(0, -.5f * size, -.5f * size);  
 		StartCoroutine(RotateAroundEdge(target.position, Vector3.left)); 
-		
-		FinishAnimation ();
-		
-	}
-
-	protected void StartAnimation() {
-
-		// Notify game components
-		if (OnAnimationStart != null)
-			OnAnimationStart (new PlayerEventArgs(gameObject));
-
-	}
-
-	protected void FinishAnimation() {
-
-
-		// Notify game components
-		if (OnAnimationDone != null)
-			OnAnimationDone (new PlayerEventArgs(gameObject));
-
 
 	}
 
 	protected IEnumerator RotateAroundEdge(Vector3 point, Vector3 axis, float end = 90f) {
-		
+
+		StartAnimation ();
+
 		int iterations = 30;
 		float angle = end / iterations;
 		
@@ -219,6 +187,26 @@ public class PlayerController : MonoBehaviour {
 
 		// Stop animation
 		isAnimating = false;
+
+		FinishAnimation ();
+		
+	}
+
+	protected void StartAnimation() {
+		
+		// Notify game components
+		if (OnAnimationStart != null)
+			OnAnimationStart (new PlayerEventArgs(gameObject));
+		
+	}
+	
+	protected void FinishAnimation() {
+		
+		
+		// Notify game components
+		if (OnAnimationDone != null)
+			OnAnimationDone (new PlayerEventArgs(gameObject));
+		
 		
 	}
 
