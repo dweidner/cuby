@@ -49,7 +49,6 @@ public class DimensionController : MonoBehaviour {
 	
 	protected void HandleOnAnimationDone (PlayerEventArgs e) {
 
-		GameObject hero = e.GameObject;
 		GameObject tile = GetTileByPosition(e.NormalizedPosition);
 
 		if(tile != null){
@@ -65,13 +64,13 @@ public class DimensionController : MonoBehaviour {
 		GameObject[] neighbours = GetNeighbourTiles (position);
 
 		if (direction == "up" && neighbours [0] != null) {
-			return true;
+			return neighbours[0].GetComponent<Tile>().isPassable;
 		} else if (direction == "right" && neighbours [1] != null) {
-			return true;
+			return neighbours[1].GetComponent<Tile>().isPassable;
 		} else if (direction == "down" && neighbours [2] != null) {
-			return true;
+			return neighbours[2].GetComponent<Tile>().isPassable;
 		} else if (direction == "left" && neighbours[3] != null) {
-			return true;
+			return neighbours[3].GetComponent<Tile>().isPassable;
 		}
 
 		return false;
