@@ -6,6 +6,7 @@ public delegate void PlayerEventHandler(PlayerEventArgs e);
 public class PlayerEventArgs : System.EventArgs {
 	
 	private GameObject entity;
+
 	
 	private string movement;
 	private bool canceled;
@@ -269,6 +270,7 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 	
+
 	protected void StartAnimation() {
 		
 		// Notify game components
@@ -285,6 +287,13 @@ public class PlayerController : MonoBehaviour {
 			OnAnimationDone (new PlayerEventArgs(gameObject));
 		
 		audio.Play ();
+
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		GameObject finish = GameObject.FindGameObjectWithTag ("Finish");
+		if (Mathf.Approximately (player.transform.position.x, finish.transform.position.x) && Mathf.Approximately (player.transform.position.z, finish.transform.position.z)) {
+			finish.audio.Play ();
+			Debug.Log ("Victory Sound played");
+		}
 
 	}
 	

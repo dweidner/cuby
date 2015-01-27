@@ -51,7 +51,8 @@ public class DimensionController : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		GameObject tile = GetMetaTileByPosition (player.transform.position);
 		SetActiveTile (tile);
-		
+
+
 		if (tile == null) {
 			Debug.LogError( "Starting tile not found");
 		}

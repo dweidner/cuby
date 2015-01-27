@@ -8,6 +8,7 @@ TagManager:
   - Dimension3Light
   - MetaTile
   - Dimension
+  - Goal
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
