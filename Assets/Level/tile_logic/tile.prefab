@@ -10,10 +10,11 @@ GameObject:
   - 4: {fileID: 450074}
   - 114: {fileID: 11450074}
   - 114: {fileID: 11450076}
+  - 114: {fileID: 11451528}
   m_Layer: 0
   m_Name: tile
   m_TagString: Untagged
-  m_Icon: {fileID: -1500306622, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -54,6 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassable: 1
   isDeadly: 0
+  TargetDimension: {fileID: 0}
+--- !u!114 &11451528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f419e78cc049da9740eb6f31e930e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
