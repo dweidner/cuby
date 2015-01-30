@@ -87,22 +87,23 @@ public class PlayerController : MonoBehaviour {
 	
 	protected void HandleInput() {
 		
-		if (!isAnimating && Input.GetKeyDown("up")) {
+		if (!isAnimating && Input.GetKey("up")) {
 			isAnimating = true;
 			Move ("up");
+			Debug.Log("keydown");
 		}
 		
-		if (!isAnimating && Input.GetKeyDown("down")) {
+		if (!isAnimating && Input.GetKey("down")) {
 			isAnimating = true;
 			Move ("down");
 		}
 		
-		if (!isAnimating && Input.GetKeyDown("left")) {
+		if (!isAnimating && Input.GetKey("left")) {
 			isAnimating = true;
 			Move ("left");
 		}
 		
-		if (!isAnimating && Input.GetKeyDown("right")) {
+		if (!isAnimating && Input.GetKey("right")) {
 			isAnimating = true;
 			Move ("right");
 		}
