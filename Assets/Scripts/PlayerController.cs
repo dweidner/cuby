@@ -245,7 +245,7 @@ public class PlayerController : MonoBehaviour {
 		
 		for (int i = 1; i <= iterations; i++) {
 			transform.RotateAround(point, axis, angle);
-			yield return new WaitForSeconds(0.0033333f);
+			yield return new WaitForSeconds(0.00000000003f);
 		}
 		
 		target.position = transform.position;
