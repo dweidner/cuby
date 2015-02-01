@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Dimension 1
-  m_Shader: {fileID: 4800000, guid: d46dae4a99a0b4c1783873fcef5ff45e, type: 3}
+  m_Name: Hero 1
+  m_Shader: {fileID: 4800000, guid: 21023f91682384cb893256fb1eced52d, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -29,14 +29,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Detail
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
+          name: _Illum
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -44,12 +37,16 @@ Material:
     m_Floats:
       data:
         first:
+          name: _Cutoff
+        second: .5
+      data:
+        first:
           name: _Shininess
-        second: .078125
+        second: .699999988
       data:
         first:
           name: _yPosLow
-        second: -3
+        second: 0
       data:
         first:
           name: _yPosHigh
@@ -64,30 +61,46 @@ Material:
         second: 1
       data:
         first:
-          name: _GlobalIllumination
-        second: .5
+          name: _EmissionLM
+        second: 0
       data:
         first:
-          name: _Parallax
-        second: .0199999996
+          name: _GlobalIllumination
+        second: .5
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .922330081, g: .380111784, b: .380111784, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
           name: _SpecColor
-        second: {r: .315852106, g: .933823526, b: .320113927, a: 0}
-      data:
-        first:
-          name: _ColorHigh
-        second: {r: .729411781, g: .355321169, b: .321568638, a: 1}
-      data:
-        first:
-          name: _ColorLow
-        second: {r: .164143637, g: .393738776, b: .507352948, a: 1}
+        second: {r: 1, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Emission
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: .573529422, g: .544009507, b: .544009507, a: 0}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _ColorX
+        second: {r: .492647052, g: .41049093, b: .26443556, a: 1}
+      data:
+        first:
+          name: _ColorY
+        second: {r: .00784313772, g: .580392182, b: .988235295, a: 1}
+      data:
+        first:
+          name: _ColorZ
+        second: {r: .992156863, g: .00784313772, b: .00784313772, a: 1}
+      data:
+        first:
+          name: _ColorTint
+        second: {r: 1, g: .600000024, b: .600000024, a: 1}

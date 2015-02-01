@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Dimension 2
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: d46dae4a99a0b4c1783873fcef5ff45e, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -20,9 +20,37 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats:
+      data:
+        first:
+          name: _yPosLow
+        second: -10
+      data:
+        first:
+          name: _yPosHigh
+        second: 0
+      data:
+        first:
+          name: _GradientStrength
+        second: 1
+      data:
+        first:
+          name: _EmissiveStrengh
+        second: 1
+      data:
+        first:
+          name: _GlobalIllumination
+        second: .5
     m_Colors:
       data:
         first:
           name: _Color
         second: {r: .380111754, g: .720400572, b: .922330081, a: 1}
+      data:
+        first:
+          name: _ColorHigh
+        second: {r: .3406142, g: .502296925, b: .661764741, a: 1}
+      data:
+        first:
+          name: _ColorLow
+        second: {r: .124295279, g: .183823526, b: .0446042381, a: 1}

@@ -9,7 +9,8 @@ public class DimensionController : MonoBehaviour {
 	public string metaTileTag = "MetaTile";
 	public float tileSize = 1f;
 	public GameObject startDimension;
-	
+
+
 	protected Dictionary<string, Transform[]> tiles;
 	protected GameObject currentTile;
 	protected GameObject currentDimension;
@@ -51,38 +52,22 @@ public class DimensionController : MonoBehaviour {
 					}
 				}
 			}
-
-//			Transform[] children = dimension.GetComponentsInChildren<Transform>();
-//			tiles.Add(dimension.name, children);
-			
-//			if (children.Length == 0) {
-//				Debug.LogError( "Dimension " + name + " is empty" );
-//			}
 			
 		}
-//		
-//		//metaTiles = GameObject.FindGameObjectsWithTag (metaTileTag);
-//		
-////		if (metaTiles == null || metaTiles.Length == 0) {
-////			Debug.LogError( "No meta tiles found" );
-////		}
-//		
+
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
-//		GameObject tile = GetMetaTileByPosition (player.transform.position);
 		currentTile = GetTileInDimension (startDimension, player.transform.position);
 
 		currentDimension = startDimension;
 		SetActiveTile (currentTile);
-//
-//
-//		if (tile == null) {
-//			Debug.LogError( "Starting tile not found");
-//		}
-		
 	}
 	
 	public void Update() {
 		
+	}
+
+	void OnDrawGizmos () {
+
 	}
 	
 	protected void HandleOnMove (PlayerEventArgs e) {
@@ -120,18 +105,6 @@ public class DimensionController : MonoBehaviour {
 		if (currentTile != null && targetTile != null) {
 
 			return targetTile.GetComponent<Tile>().isPassable;
-
-//			string currentDimension = GetDimension(currentMetaTile);
-//			string targetDimension = GetDimension(targetMetaTile);
-//
-//
-//			
-//			GameObject targetTileCurrentDimension = GetTileInDimension(currentDimension, targetMetaTile.transform.position);
-//			GameObject targetTileNextDimension = GetTileInDimension(targetDimension, targetMetaTile.transform.position);
-//			
-//			if ( targetTileCurrentDimension != null) {
-//				return targetTileCurrentDimension.GetComponent<Tile>().isPassable;
-//			}
 			
 		}
 		
@@ -228,8 +201,6 @@ public class DimensionController : MonoBehaviour {
 	}
 	
 	protected void SetActiveTile(GameObject tile) {
-		Debug.Log ("SetActiveTile: " + tile);
-//		currentMetaTile = tile;
 		currentTile = tile;
 
 		if (tile != null) {
@@ -243,7 +214,6 @@ public class DimensionController : MonoBehaviour {
 			return tile.GetComponent<Tile> ().TargetDimension;
 		else
 			return tile.GetComponent<Tile> ().Dimension();
-//		return tile.GetComponent<Tile> ().dimension.ToString ();
 	}
 	
 	protected void switchDimension(GameObject dimension) {
@@ -251,22 +221,9 @@ public class DimensionController : MonoBehaviour {
 		foreach (var dim in dimensions) {
 			dim.SetActive(false);
 		}
-		Debug.Log ("Set Active: " + dimension);
 		dimension.SetActive (true);
-
+		dimension.GetComponent<Dimension> ().SetLightning();
 		currentDimension = dimension;
-		
-//		Camera.main.cullingMask = 0;
-//		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer("Default"));
-//		Camera.main.cullingMask |= (1 << LayerMask.NameToLayer(dimension.name + " visual"));
-//		
-//		Light[] lights = FindObjectsOfType(typeof(Light)) as Light[];
-//		foreach(Light light in lights) {
-//			light.intensity = 0;
-//			if(light.tag == name + "Light") {
-//				light.intensity = 1;
-//			}
-//		}
 		
 	}
 	

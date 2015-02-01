@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material
+  m_Name: Dimension 3
   m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -25,4 +25,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .772058845, g: .0965073556, b: .0965073556, a: 1}
+        second: {r: .510992169, g: .922330081, b: .380111754, a: 1}

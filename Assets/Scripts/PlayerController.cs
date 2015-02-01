@@ -240,14 +240,14 @@ public class PlayerController : MonoBehaviour {
 		
 		StartAnimation ();
 		
-		int iterations = 30;
+		int iterations = 22;
 		float angle = end / iterations;
 		
 		for (int i = 1; i <= iterations; i++) {
 			transform.RotateAround(point, axis, angle);
 			yield return new WaitForSeconds(0.0033333f);
 		}
-		
+		yield return new WaitForSeconds(.01f);
 		target.position = transform.position;
 		
 		// Normalize position

@@ -22,6 +22,7 @@ public class FollowTarget : MonoBehaviour {
 
 		float desiredAngle = target.eulerAngles.y;
 		float desiredHeight = target.position.y + height;
+		desiredHeight = height;
 
 		float a = transform.eulerAngles.y;
 		float h = transform.position.y;
@@ -34,7 +35,7 @@ public class FollowTarget : MonoBehaviour {
 		position.y = h;
 
 		transform.position = position;
-		transform.LookAt (target);
+		transform.LookAt (new Vector3(target.position.x, 0, target.position.z));
 	
 	}
 }
