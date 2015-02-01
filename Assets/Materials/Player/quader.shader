@@ -2,9 +2,12 @@
 	Properties {
       _ColorHigh ("Color High", COLOR) = (1,1,1,1)
       _ColorLow ("Color Low", COLOR) = (1,1,1,1)
+      _ColorFar ("Color Far", COLOR) = (1,1,1,1)
 //      _GlobalIllumination ("Global Light Strength ", Float) = .5
       _yPosLow ("Y Pos Low", Float) = 0
       _yPosHigh ("Y Pos High", Float) = 10
+      _zPosNear ("Z Pos Near", Float) = 0
+      _zPosFar ("Z Pos Far", Float) = 10
       _GradientStrength ("Graident Strength", Float) = 1
       _EmissiveStrengh ("Emissive Strengh ", Float) = 1
 //      _ColorY ("Top", COLOR) = (1,1,1,1)
@@ -28,11 +31,14 @@
 		fixed4 _BodyColor;
       fixed4 _ColorLow;
       fixed4 _ColorHigh;
+      fixed4 _ColorFar;
       fixed4 _ColorX;
       fixed4 _ColorY;
       fixed4 _ColorZ;
       half _yPosLow;
       half _yPosHigh;
+      half _zPosNear;
+      half _zPosFar;
       half _GradientStrength;
       half _EmissiveStrengh;
       half _GlobalIllumination;
@@ -45,7 +51,12 @@
 
 		void surf (Input IN, inout SurfaceOutput o) {
          // gradient color at this height
-         half3 gradient = lerp(_ColorLow, _ColorHigh,  smoothstep( _yPosLow, _yPosHigh, IN.worldPos.y )).rgb;
+         half3 gradient = lerp(_ColorHigh, _ColorFar,  smoothstep( _zPosNear, _zPosFar, IN.worldPos.z )).rgb;
+         gradient = lerp(gradient, _ColorLow,  smoothstep( _yPosHigh, _yPosLow, IN.worldPos.y )).rgb;
+      
+         
+//         half3 gradient = lerp(_ColorLow, _ColorHigh,  smoothstep( _yPosLow, _yPosHigh, IN.worldPos.y )).rgb;
+//         gradient = lerp(gradient, _ColorFar,  smoothstep( _zPosNear, _zPosFar, IN.worldPos.z )).rgb;
       
          // lerp the 
          //gradient = lerp(WHITE3, gradient, _GradientStrength);

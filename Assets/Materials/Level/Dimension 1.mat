@@ -70,6 +70,14 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
+      data:
+        first:
+          name: _zPosNear
+        second: 0
+      data:
+        first:
+          name: _zPosFar
+        second: 10
     m_Colors:
       data:
         first:
@@ -91,3 +99,7 @@ Material:
         first:
           name: _Emission
         second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _ColorFar
+        second: {r: .808823526, g: .249783739, b: .377013773, a: 1}

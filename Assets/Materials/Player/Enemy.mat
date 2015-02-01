@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Hero
+  m_Name: Enemy
   m_Shader: {fileID: 4800000, guid: d46dae4a99a0b4c1783873fcef5ff45e, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -50,7 +50,7 @@ Material:
       data:
         first:
           name: _yPosHigh
-        second: 1
+        second: 2
       data:
         first:
           name: _GradientStrength
@@ -87,11 +87,11 @@ Material:
       data:
         first:
           name: _ColorHigh
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .102799483, g: .0559580401, b: .110294104, a: 1}
       data:
         first:
           name: _ColorLow
-        second: {r: .838235259, g: .838235259, b: .838235259, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Emission

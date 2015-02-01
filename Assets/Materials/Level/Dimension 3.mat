@@ -41,6 +41,14 @@ Material:
         first:
           name: _GlobalIllumination
         second: .5
+      data:
+        first:
+          name: _zPosNear
+        second: 0
+      data:
+        first:
+          name: _zPosFar
+        second: 10
     m_Colors:
       data:
         first:
@@ -54,3 +62,7 @@ Material:
         first:
           name: _ColorLow
         second: {r: .485402226, g: .985294104, b: .721764207, a: 1}
+      data:
+        first:
+          name: _ColorFar
+        second: {r: .723732233, g: .250980437, b: .972549021, a: 1}
