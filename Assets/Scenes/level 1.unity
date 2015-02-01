@@ -58632,8 +58632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1512051879}
-  distance: 3
-  height: 3.5
+  distance: 10
+  height: 10.5
   hDamping: 100000
   rDamping: 0
 --- !u!1001 &1343202668
